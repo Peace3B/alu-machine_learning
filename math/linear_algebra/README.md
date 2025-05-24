@@ -1,0 +1,1 @@
+Linear Algebra runs smoothly when you understand numbers.
