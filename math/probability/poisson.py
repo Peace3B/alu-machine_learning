@@ -56,3 +56,4 @@ class Poisson():
                 factorial *= j
             summation += (self.lambtha ** i) / factorial
         return (e ** (-self.lambtha)) * summation
+    
