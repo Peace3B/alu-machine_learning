@@ -64,4 +64,3 @@ class Normal():
         val *= (2 / (pi ** (1 / 2)))
         cdf = (1 / 2) * (1 + val)
         return cdf
-    
