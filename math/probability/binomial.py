@@ -66,4 +66,3 @@ class Binomial():
         for i in range(k + 1):
             summation += self.pmf(i)
         return summation
-    
