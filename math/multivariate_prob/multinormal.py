@@ -51,4 +51,4 @@ class MultiNormal:
         mult = np.matmul(np.matmul((x - self.mean).T, inv), (x - self.mean))
         pdf *= np.exp(-0.5 * mult)
         pdf = pdf[0][0]
-        return pdf
+        ret
