@@ -60,5 +60,4 @@ def intersection(x, n, P, Pr):
     likelihood = fact_coefficient * (P ** x) * ((1 - P) ** (n - x))
     # intersection is the likelihood times priors
     intersection = likelihood * Pr
-
     return intersection
