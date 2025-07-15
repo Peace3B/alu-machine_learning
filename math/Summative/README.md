@@ -3,14 +3,14 @@ JOB TENURE APPLICATION
 
 Mission Statement
 -----------------
-To improve the welfare of medical personnel so as to increase better delivery of medical services.
+To improve the welfare of the professional world for young people to grow and have time to rest after and money to spend during pension.
 
 Reason for the app
 ------------------
 
-I chose to work on an app that predicts how many years someone will spend in a company, specifically focusing on medical personnel. This prediction is based on various factors such as age, total working years, job level, and other career-related variables. The goal is to provide healthcare organizations with insights into employee retention and career growth, which can be crucial for improving the welfare of medical personnel. 
+I chose to work on an app that predicts how many years someone will spend in a company, specifically after graduating from college. This prediction is based on various factors such as age, total working years, job level, and other career-related variables. The goal is to provide organizations with insights into employee retention and career growth, which can be crucial for improving the welfare of medical personnel. 
 
-The data was extracted from Kaggle at https://www.kaggle.com/datasets/jpmiller/employee-attrition-for-healthcare/data?select=watson_healthcare_modified.csv
+The data was extracted from Kaggle at https://www.kaggle.com/datasets/durgeshrao9993/college-placement-data-set
 
 It has 35 columns but only 8 were used to make the model depending on the correlation with the target variable which is Years_At_Company.
 
