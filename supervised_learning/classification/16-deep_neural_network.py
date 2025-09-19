@@ -33,4 +33,4 @@ class DeepNeuralNetwork:
             previous = layer
         self.L = len(layers)
         self.cache = {}
-        self.weights = weights
+        self.weights = weightS
