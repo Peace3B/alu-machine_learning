@@ -1,37 +1,48 @@
 #!/usr/bin/env python3
-"""
-Uses the GitHub API to print the location of a specific user,
-where user is passed as first argument of the script with full API URL
-
-ex) "./2-user_location.py https://api.github.com/users/holbertonschool"
-"""
+'''
+Prints the location of a user
+'''
 
 
+import sys
 import requests
-from sys import argv
-from time import time
+import time
 
 
-if __name__ == "__main__":
-    if len(argv) < 2:
-        raise TypeError(
-            "Input must have the full API URL passed in as an argument: {}{}".
-            format('ex. "./2-user_location.py',
-                   'https://api.github.com/users/holbertonschool"'))
+def get_user_location(api_url):
+    """
+    Fetch and print the location of a GitHub user.
+
+    :param api_url: The API URL for the user
+    """
     try:
-        url = argv[1]
-        results = requests.get(url)
-        if results.status_code == 403:
-            reset = results.headers.get('X-Ratelimit-Reset')
-            waitTime = int(reset) - time()
-            minutes = round(waitTime / 60)
-            print('Reset in {} min'.format(minutes))
-        else:
-            results = results.json()
-            location = results.get('location')
+        response = requests.get(api_url)
+
+        if response.status_code == 200:
+            user_data = response.json()
+            location = user_data.get('location')
             if location:
                 print(location)
             else:
-                print('Not found')
-    except Exception as err:
-        print('Not found')
+                print('Location not available')
+        elif response.status_code == 404:
+            print('Not found')
+        elif response.status_code == 403:
+            reset_time = int(
+                response.headers.get('X-RateLimit-Reset', time.time()))
+            current_time = int(time.time())
+            wait_time = (reset_time - current_time) // 60
+            print('Reset in {} min'.format(wait_time))
+        else:
+            print('Error: {}'.format(response.status_code))
+    except requests.RequestException as e:
+        print('An error occurred: {}'.format(e))
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print('Usage: ./2-user_location.py <api_url>')
+        sys.exit(1)
+
+    api_url = sys.argv[1]
+    get_user_location(api_url)
